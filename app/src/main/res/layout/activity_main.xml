@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:baselineAligned="false"
+    tools:context=".MainActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="end"
+            android:layout_weight="0.25"
+            android:orientation="horizontal">
+
+            <com.example.hw2.MySurfaceView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/mainSurface"
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center|clip_vertical"
+                android:text="Please select an object"
+                android:textSize="25sp"
+                android:id="@+id/displayText"
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="end"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center|center_horizontal|top|center_vertical"
+                android:text="@string/red"
+                android:id="@+id/redDisplay"
+                android:textSize="15sp" />
+            <SeekBar
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:id="@+id/redSeekBar"
+                android:max="255"
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="end"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center|center_horizontal|top|center_vertical"
+                android:text="@string/green"
+                android:id="@+id/greenDisplay"
+                android:textSize="15sp" />
+            <SeekBar
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:id="@+id/greenSeekBar"
+                android:max="255"
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="end"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center|center_horizontal|top|center_vertical"
+                android:text="@string/blue"
+                android:id="@+id/blueDisplay"
+                android:textSize="15sp" />
+            <SeekBar
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:id="@+id/blueSeekBar"
+                android:max="255"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+</android.support.constraint.ConstraintLayout>
