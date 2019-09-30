@@ -3,8 +3,15 @@ package com.example.hw2;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.SurfaceView;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.RadioButton;
 import android.widget.SeekBar;
+import android.widget.Spinner;
 import android.widget.TextView;
+
 
 /**
  * <!-- class CustomElement -->
@@ -17,14 +24,14 @@ import android.widget.TextView;
  *
  */
 
-public class MainActivity extends AppCompatActivity {
-
+public class MainActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
+    private String text;
     /**
      *
      * @param savedInstanceState
      */
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate (Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
@@ -49,12 +56,33 @@ public class MainActivity extends AppCompatActivity {
         /** assigns id for the blue SeekBar to blueSeekBar */
         SeekBar blueSeekBar = findViewById(R.id.blueSeekBar);
 
+        /** assigns id for the random Button to randomButton */
+        Button randomButton = findViewById(R.id.randomButton);
+
+        /** assigns id for the hair RadioButton to radioHair */
+        RadioButton radioHair = findViewById(R.id.radioHair);
+
+        /** assigns id for the skin RadioButton to radioSkin */
+        RadioButton radioSkin = findViewById(R.id.radioSkin);
+
+        /** assigns id for the eye RadioButton to radioEyes */
+        RadioButton radioEyes = findViewById(R.id.radioEyes);
+
+        /** assigns id for the hair Spinner to hairSpinner */
+        Spinner hairSpinner = findViewById(R.id.hairSpinner);
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
+                R.array.hairArray, android.R.layout.simple_spinner_item);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        hairSpinner.setAdapter(adapter);
+        hairSpinner.setOnItemSelectedListener(this);
+
         /** assigns id for the SurfaceView to mainSurface */
         MySurfaceView mainSurface = findViewById(R.id.mainSurface);
 
         /** registers the Controller object */
         Controller theController = new Controller(displayText, redDisplay, greenDisplay,
-                blueDisplay, redSeekBar, greenSeekBar, blueSeekBar, mainSurface);
+                blueDisplay, redSeekBar, greenSeekBar, blueSeekBar, randomButton, radioHair,
+                radioEyes, radioSkin, mainSurface);
 
         /** finds a listener for the red SeekBar and implements it*/
         redSeekBar.setOnSeekBarChangeListener(theController);
@@ -65,9 +93,38 @@ public class MainActivity extends AppCompatActivity {
         /** finds a listener for the blue SeekBar and implements it */
         blueSeekBar.setOnSeekBarChangeListener(theController);
 
+        /** finds a listener for the random Button and implements it */
+        randomButton.setOnClickListener(theController);
+
+        /** finds a listener for the hair RadioButton and implements it */
+        radioHair.setOnClickListener(theController);
+
+        /** finds a listener for the skin RadioButton and implements it */
+        radioSkin.setOnClickListener(theController);
+
+        /** finds a listener for the eyes RadioButton and implements it */
+        radioEyes.setOnClickListener(theController);
+
         /** finds a listener for the controller and implements it */
         mainSurface.setOnTouchListener(theController);
+        //theController.spinner();
     }
+
+    @Override
+    public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+        this.text = adapterView.getItemAtPosition(i).toString();
+    }
+    public String getText(){
+        return this.text;
+
+    }
+    @Override
+    public void onNothingSelected(AdapterView<?> adapterView) {
+        text = "";
+    }
+
+
+
     /**
      * External Citations:
      *      Date 17 February 2019

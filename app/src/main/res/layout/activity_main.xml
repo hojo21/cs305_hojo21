@@ -20,10 +20,9 @@
             android:orientation="horizontal">
 
             <com.example.hw2.MySurfaceView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
                 android:id="@+id/mainSurface"
-                />
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
 
         </LinearLayout>
 
@@ -33,15 +32,53 @@
             android:layout_weight="1"
             android:orientation="horizontal">
 
+            <Button
+                android:id="@+id/randomButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Random Face" />
+
+            <RadioButton
+                android:id="@+id/radioHair"
+                android:layout_width="wrap_content"
+                android:layout_height="17dp"
+                android:text="Hair" />
+
+            <RadioButton
+                android:id="@+id/radioSkin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Eyes"
+                />
+
+            <RadioButton
+                android:id="@+id/radioEyes"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Skin"
+                />
+
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:gravity="center|clip_vertical"
                 android:text="Please select an object"
-                android:textSize="25sp"
+                android:textSize="20sp"
+                android:layout_weight="1"
                 android:id="@+id/displayText"
                 />
+
+            <Spinner
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center|clip_vertical"
+                android:textSize="20sp"
+                android:layout_weight="1"
+                android:id="@+id/hairSpinner" />
 
         </LinearLayout>
 

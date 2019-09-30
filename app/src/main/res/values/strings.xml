@@ -3,4 +3,10 @@
     <string name="green">Green</string>
     <string name="red">Red</string>
     <string name="blue">Blue</string>
+    
+    <string-array name="hairArray">
+        <item>Blond</item>
+        <item>Brunette</item>
+        <item>Black</item>
+    </string-array>
 </resources>

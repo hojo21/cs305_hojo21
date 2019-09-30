@@ -1,10 +1,7 @@
 package com.example.hw2;
 
 import android.content.Context;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
-import android.graphics.Paint;
 import android.util.AttributeSet;
 import android.view.SurfaceView;
 
@@ -20,24 +17,30 @@ import android.view.SurfaceView;
  */
 
 public class MySurfaceView extends SurfaceView {
-    /** creates instance of CustomCircle for the sun drawing */
-    protected CustomCircle sun = new CustomCircle("Sun",0xFFFFFF00, 200, 200,
-            150);
-    /** creates instance of CustomCircle for the snowman body drawing */
-    protected CustomCircle snowMan1 = new CustomCircle("Snowman Body",0xFFFFFFFF, 1400,
-            650, 150);
-    /** creates instance of CustomCircle for the snowman head drawing */
-    protected CustomCircle snowMan2 = new CustomCircle("Snowman Head",0xFFFFFFFF, 1400,
-            450, 100);
-    /** creates instance of CustomRect for the elevator drawing */
-    protected CustomRect elevator = new CustomRect("Elevator", 0xFFD2B48C,
-            500, 400, 1000, 1000);
+    /** creates instance of CustomCircle for the face drawing */
+    protected CustomCircle face = new CustomCircle("Face",0xFFFFFF00, 1000, 450,
+            350);
+    /** creates instance of CustomCircle for the left eye drawing */
+    protected CustomCircle leftEye = new CustomCircle("Left Eye",0xFFFFFFFF, 850,
+            350, 100);
+    /** creates instance of CustomCircle for the left pupil drawing */
+    protected CustomCircle leftP = new CustomCircle("Left P", 0xFF000000, 850,
+            400, 50);
+    /** creates instance of CustomCircle for the right eye drawing */
+    protected CustomCircle rightEye = new CustomCircle("Right Eye",0xFFFFFFFF, 1150,
+            350, 100);
+    /** creates instance of CustomCircle for the right pupil drawing */
+    protected CustomCircle rightP = new CustomCircle("Right P", 0xFF000000, 1150,
+            400, 50);
+    /** creates instance of CustomRect for the hair drawing */
+    protected CustomRect hair = new CustomRect("Hair", 0xFF000000,
+            600, 100, 1400, 200);
     /** creates instance of CustomRect for the door drawing */
     protected CustomRect door = new CustomRect("Door", 0xFFFF0000,
-            600, 500, 900, 1000);
-    /** creates instance of CustomRect for the roof drawing */
+            0, 0, 0, 0);
+    /**creates instance of CustomRect for the roof drawing */
     protected CustomRect roof = new CustomRect("Roof", 0xFF228B22,
-            450, 375, 1050, 400);
+            0, 0, 0, 0);
 
     public MySurfaceView(Context context){
         super(context);
@@ -68,14 +71,18 @@ public class MySurfaceView extends SurfaceView {
     protected void onDraw(Canvas canvas) {
         /** sets color for canvas background */
         canvas.drawColor(0xFF87ceeb);
-        /** runs drawMe on the sun instance to draw image */
-        sun.drawMe(canvas);
-        /** runs drawMe on the snowman body instance to draw image */
-        snowMan1.drawMe(canvas);
-        /** runs drawMe on the snowman head instance to draw image */
-        snowMan2.drawMe(canvas);
-        /** runs drawMe on the elevator instance to draw image */
-        elevator.drawMe(canvas);
+        /** runs drawMe on the face instance to draw image */
+        face.drawMe(canvas);
+        /** runs drawMe on the left eye instance to draw image */
+        leftEye.drawMe(canvas);
+        /** runs drawMe on the right eye instance to draw image */
+        rightEye.drawMe(canvas);
+        /** runs drawMe on the left pupil instance to draw image */
+        leftP.drawMe(canvas);
+        /** runs drawMe on the right pupil instance to draw image */
+        rightP.drawMe(canvas);
+        /** runs drawMe on the hair instance to draw image */
+        hair.drawMe(canvas);
         /** runs drawMe on the roof instance to draw image */
         roof.drawMe(canvas);
         /** runs drawMe on the door instance to draw image */
